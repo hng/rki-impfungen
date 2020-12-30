@@ -4,5 +4,5 @@ data/*
 .bridgetown-webpack
 node_modules
 output/
-src/_data/impfquoten/*
+src/_data/impfquoten/*.json
 

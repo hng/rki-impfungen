@@ -1,0 +1,8 @@
+.DS_Store
+data/*
+.bridgetown-cache
+.bridgetown-webpack
+node_modules
+output/
+src/_data/impfquoten/*
+

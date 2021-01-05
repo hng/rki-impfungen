@@ -12,7 +12,7 @@ Dir.glob("data/*.xlsx").each do |file|
   creek = Creek::Book.new file
   
   creek.sheets.each do |sheet|
-    if sheet.name != "Erläuterung" 
+    if sheet.name =~ /\d?\d\.\d?\d\.\d?\d?\d\d/ 
       sheet.simple_rows.each_with_index do |row, index|
         if index == 0
           json['headers'] = row.values
@@ -23,6 +23,7 @@ Dir.glob("data/*.xlsx").each do |file|
           json['notes'] << row['A']
         end
       end
+      break
     end
   end
 

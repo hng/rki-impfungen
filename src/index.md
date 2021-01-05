@@ -36,7 +36,7 @@ layout: home
           </td>
         {% for number in data[1] %}
           <td class="py-2 text-right">
-            {{ number | thousands_separated:"." }}
+            {{ number | round: 1 | thousands_separated: "."}}
           </td>
         {% endfor %}
         </tr>

@@ -5,11 +5,19 @@ layout: home
 ---
 {% for data in site.data.impfquoten_latest.data %}
 {% if data[0] == 'Gesamt' %}
-<div class="w-10 mt-5">
+<div class="mt-5 flex flex-col md:flex-row">
+<div class="">
 <p class="text-5xl text-purple-500">
 {{ data[1].first | thousands_separated:"."}}
 </p>
-<p class="text-right text-gray-500">Gesamt</p>
+<p class="text-gray-500">Gesamt</p>
+</div>
+<div class="mt-3 md:ml-5 md:mt-0">
+<p class="text-5xl text-green-500">
++{{ data[1][1] | thousands_separated:"."}}
+</p>
+<p class="text-gray-500">Differenz zum Vortag</p>
+</div>
 </div>
 {% endif %}
 {% endfor %}

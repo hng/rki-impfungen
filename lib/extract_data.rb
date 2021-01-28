@@ -15,10 +15,10 @@ Dir.glob("data/*.xlsx").each do |file|
     if sheet.name =~ /\d?\d\.\d?\d\.\d?\d?\d\d/ 
       sheet.simple_rows.each_with_index do |row, index|
         if index == 0
-          json['headers'] = row.values
-        elsif row.size >= 6 
-          json['data'][row['A']] = row.values.drop(1)
-          tty_table_rows << [row['A'], row['B']]
+          json['headers'] = row.values.drop(1)
+        elsif (!row['A'].nil? && row['A'] != 'RS') || row['B'] == 'Gesamt'
+          json['data'][row['B']] = row.values.drop(2)
+          tty_table_rows << [row['B'], row['C']]
         elsif row.size == 1 
           json['notes'] << row['A']
         end

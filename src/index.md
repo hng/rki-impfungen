@@ -30,9 +30,11 @@ layout: home
     <thead>
       <tr>
         {% for header in day.headers %}
+          {% if forloop.index == 1 or forloop.index == 2 %}
           <th class="{% if forloop.first == true %}text-left{% else %}text-right{% endif %}">
            {{ header }}
           </th>
+          {% endif %}
         {% endfor %}
       </tr>
     </thead>
@@ -43,9 +45,11 @@ layout: home
             {{ data[0] }} 
           </td>
         {% for number in data[1] %}
+          {% if forloop.index == 1 %}
           <td class="py-2 text-right">
             {{ number | round: 1 | replace: ".", "," | thousands_separated: "."}}
           </td>
+          {% endif %}
         {% endfor %}
         </tr>
       {% endfor %}

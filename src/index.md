@@ -12,12 +12,14 @@ layout: home
 </p>
 <p class="text-gray-500">Gesamt</p>
 </div>
+{% comment %}
 <div class="mt-3 md:ml-5 md:mt-0">
 <p class="text-5xl text-green-500">
 +{{ data[1][1] | thousands_separated:"."}}
 </p>
 <p class="text-gray-500">Differenz zum Vortag</p>
 </div>
+{% endcomment %}
 </div>
 {% endif %}
 {% endfor %}
